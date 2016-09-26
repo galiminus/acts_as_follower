@@ -7,9 +7,6 @@ module ActsAsFollower
 
     # Retrieves the parent class name if using STI.
     def parent_class_name(obj)
-      unless parent_classes.include?(obj.class.superclass)
-        return obj.class.superclass.name
-      end
       obj.class.name
     end
 
