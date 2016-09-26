@@ -3,12 +3,12 @@ module ActsAsFollower #:nodoc:
 
     # returns Follow records where follower is the record passed in.
     def for_follower(follower)
-      where(follower_id: follower.id, follower_type: follower.class.name)
+      where(follower_id: follower.id, follower_type: parent_class_name(follower))
     end
 
     # returns Follow records where followable is the record passed in.
     def for_followable(followable)
-      where(followable_id: followable.id, followable_type: followable.class.name)
+      where(followable_id: followable.id, followable_type: parent_class_name(followable))
     end
 
     # returns Follow records where follower_type is the record passed in.
